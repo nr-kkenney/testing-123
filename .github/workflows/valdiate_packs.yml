@@ -62,7 +62,7 @@ jobs:
               "description": "Validate install plans 2", 
               "state": "${{ steps.testing_me.outcome }}", 
               "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}",
-              "context": "Validation"
+              "context": "Validation 2"
             }'
 
   ensure-quickstart-names-ids-are-unique:
@@ -110,5 +110,5 @@ jobs:
               "description": "Validate install plans 1", 
               "state": "${{ steps.testing_me.outcome }}", 
               "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}",
-              "context": "Validation"
+              "context": "Validation 1"
             }'
