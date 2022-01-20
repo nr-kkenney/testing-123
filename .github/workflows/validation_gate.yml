@@ -8,5 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Hello world
-        run: echo "Hello world!"
+      - name: write pr number
+        run: echo "${{ github.event.pull_request.number }}" > pr_number.txt
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          path: pr_number.txt
