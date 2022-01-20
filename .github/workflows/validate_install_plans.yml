@@ -43,7 +43,7 @@ jobs:
             https://api.github.com/repos/${GITHUB_REPOSITORY}/statuses/$COMMIT_SHA \
             -d '
             {
-              "description": "Validate install plans", 
+              "description": "Validate install plans 3", 
               "state": "${{ steps.validate_install_plans.outcome }}", 
               "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}",
               "context": "Validation"

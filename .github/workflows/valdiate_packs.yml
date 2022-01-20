@@ -59,7 +59,7 @@ jobs:
             https://api.github.com/repos/${GITHUB_REPOSITORY}/statuses/$COMMIT_SHA \
             -d '
             {
-              "description": "Validate install plans", 
+              "description": "Validate install plans 2", 
               "state": "${{ steps.testing_me.outcome }}", 
               "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}",
               "context": "Validation"
@@ -107,7 +107,7 @@ jobs:
             https://api.github.com/repos/${GITHUB_REPOSITORY}/statuses/$COMMIT_SHA \
             -d '
             {
-              "description": "Validate install plans", 
+              "description": "Validate install plans 1", 
               "state": "${{ steps.testing_me.outcome }}", 
               "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}",
               "context": "Validation"
