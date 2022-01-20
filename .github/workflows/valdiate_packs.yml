@@ -17,10 +17,16 @@ jobs:
     name: Ensure schema compliance
     runs-on: ubuntu-latest
     steps:
+      - name: Get PR number
+        id: get_pr_number
+        run: |
+          export PR_NUMBER=$(echo '${{ toJSON(github.event) }}' | jq '.workflow_run.pull_requests[] | select( .base.ref == "main") | .number')
+          echo "::set-output name=pr-number::$PR_NUMBER"
+
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          ref: 'refs/pull/${{ github.event.inputs.pull_request_number }}/merge'
+          ref: 'refs/pull/${{ steps.get_pr_number.outputs.pr-number }}/merge'
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
@@ -50,10 +56,16 @@ jobs:
     name: Ensure quickstart names and ids are unique
     runs-on: ubuntu-latest
     steps:
+      - name: Get PR number
+        id: get_pr_number
+        run: |
+          export PR_NUMBER=$(echo '${{ toJSON(github.event) }}' | jq '.workflow_run.pull_requests[] | select( .base.ref == "main") | .number')
+          echo "::set-output name=pr-number::$PR_NUMBER"
+
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          ref: 'pull/${{ github.event.inputs.pull_request_number }}/head'
+          ref: 'refs/pull/${{ steps.get_pr_number.outputs.pr-number }}/merge'
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
