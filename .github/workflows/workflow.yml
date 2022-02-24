@@ -9,7 +9,8 @@ jobs:
 
     steps:
       - name: set output
-        run: echo "::set-output name=fish::true"
+        id: commit-changes
+        run: echo "hello"
 
       - name: Test
         if: steps.commit-changes.outputs.fish == 'false'
