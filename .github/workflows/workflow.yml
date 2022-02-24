@@ -1,0 +1,20 @@
+name: Testing
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: set output
+        run: echo "hello"
+
+      - name: Test
+        if: steps.commit-changes.outputs.fish == 'false'
+        run: 'echo false'
+
+      - name: Test
+        if: steps.commit-changes.outputs.fish == 'true'
+        run: 'echo true'
